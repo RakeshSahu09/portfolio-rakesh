@@ -232,6 +232,10 @@ a {
 /* -------------------------------------------
    RESPONSIVENESS (TABLETS & MOBILE) 
 ---------------------------------------------*/
+#hero {
+  padding-top: 80px;
+}
+
 @media (max-width: 992px) {
   .section-title {
     font-size: 2.2rem;
@@ -288,6 +292,10 @@ a {
     font-size: 1.2rem !important;
   }
 
+  #hero {
+    padding-top: 100px;
+  }
+
   .hero-quote {
     font-size: 1rem !important;
     padding: 0.8rem 1rem !important;
@@ -332,6 +340,10 @@ a {
 }
 
 @media (max-width: 480px) {
+  #hero {
+    padding-top: 120px;
+  }
+
   .hero-title {
     font-size: 2rem !important;
   }
