@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowLeft, CheckCircle } from 'lucide-react';
-import { projects } from './Projects';
+import { projects } from './projectsData';
 
 const KeyFindings = () => {
     const { id } = useParams();
