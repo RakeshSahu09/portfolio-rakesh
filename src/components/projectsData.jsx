@@ -408,5 +408,116 @@ export const projects = [
                 </div>
             </div>
         )
+    },
+    {
+        title: "Atliq Hotels — Hospitality Data Analysis",
+        desc: "Exploratory data analysis on hotel booking data (May–Jul 2022) across 25 properties in 4 Indian cities. Covers data cleaning, occupancy rates, revenue leakage from cancellations, platform performance, and customer ratings.",
+        tools: ["Python", "Pandas", "Matplotlib", "Seaborn"],
+        highlights: [
+            "Analyzed 134,573 clean booking records across 4 major Indian cities",
+            "Discovered ~58% flat occupancy rate despite room classes, highlighting unutilized premium demand",
+            "Identified large revenue leakage from cancellations across various platforms"
+        ],
+        accent: "var(--color-neon-violet)",
+        github: "https://github.com/RakeshSahu09/Hospitality-Analysis",
+        content: (
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '3rem', color: 'var(--color-text-main)' }}>
+                <div>
+                    <h2 style={{ fontSize: '2rem', color: 'var(--color-neon-violet)', marginBottom: '1rem' }}>🏨 Atliq Hotels — Hospitality Data Analysis</h2>
+                    <h3 style={{ fontSize: '1.5rem', color: '#fff', marginBottom: '1rem' }}>🚀 Project Summary</h3>
+                    <p style={{ color: 'var(--color-text-muted)', lineHeight: '1.6' }}>A end-to-end exploratory data analysis project on a hotel chain's booking operations across India.</p>
+                </div>
+
+                <div>
+                    <h3 style={{ fontSize: '1.8rem', color: 'var(--color-neon-violet)', marginBottom: '1.5rem' }}>🧹 Data Preparation & Cleaning</h3>
+                    <ul style={{ listStyle: 'none', padding: 0, display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+                        <li>
+                            <strong style={{ color: '#fff' }}>Dataset:</strong> Started with a raw dataset of <strong>134,590 booking records</strong> spanning May–July 2022 across <strong>25 properties</strong> in 4 major Indian cities — Mumbai, Delhi, Bangalore, and Hyderabad.
+                        </li>
+                        <li>
+                            <strong style={{ color: '#fff' }}>Data Fixing:</strong> Discovered and removed <strong>9 records with negative guest counts</strong>. Applied a <strong>mean ± 3 standard deviation rule</strong> to flag revenue outliers — found 5 records with absurdly inflated <code style={{ color: 'var(--color-neon-violet)' }}>revenue_generated</code> values, which were removed to protect the integrity of revenue analysis.
+                        </li>
+                        <li>
+                            <strong style={{ color: '#fff' }}>Logical Validation:</strong> Found <strong>6 impossible records</strong> in the aggregated bookings table where <code style={{ color: 'var(--color-neon-violet)' }}>successful_bookings</code> exceeded room <code style={{ color: 'var(--color-neon-violet)' }}>capacity</code> — physically impossible, removed. Fixed a tricky <strong>date parsing issue</strong> resolving ~78,000 silently dropped rows.
+                        </li>
+                        <li>
+                            <strong style={{ color: '#fff' }}>Final Output:</strong> <strong>134,573 clean bookings</strong> ready for analysis.
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 style={{ fontSize: '1.8rem', color: 'var(--color-neon-violet)', marginBottom: '1.5rem' }}>🏙️ City & Property Insights</h3>
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1.5rem' }}>
+                        <div style={{ background: 'rgba(255,255,255,0.03)', padding: '1.5rem', borderRadius: '8px' }}>
+                            <h4 style={{ color: '#fff', marginBottom: '0.8rem' }}>Location Spread</h4>
+                            <p style={{ color: 'var(--color-text-muted)' }}><strong>Mumbai dominates</strong> the portfolio with 8 properties, followed by Hyderabad and Bangalore with 6 each, and Delhi with 5.</p>
+                        </div>
+                        <div style={{ background: 'rgba(255,255,255,0.03)', padding: '1.5rem', borderRadius: '8px' }}>
+                            <h4 style={{ color: '#fff', marginBottom: '0.8rem' }}>Revenue Leaders</h4>
+                            <p style={{ color: 'var(--color-text-muted)' }}>Mumbai leads total revenue realized (due to property count) — but on a per-property basis, other cities are highly competitive.</p>
+                        </div>
+                        <div style={{ background: 'rgba(255,255,255,0.03)', padding: '1.5rem', borderRadius: '8px' }}>
+                            <h4 style={{ color: '#fff', marginBottom: '0.8rem' }}>Satisfaction Variance</h4>
+                            <p style={{ color: 'var(--color-text-muted)' }}>Average customer ratings by city revealed meaningful differences in guest satisfaction across locations, hinting at service quality or over-capacity issues rather than demand problems.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 style={{ fontSize: '1.8rem', color: 'var(--color-neon-violet)', marginBottom: '1.5rem' }}>🛏️ Room Category & Occupancy Analysis</h3>
+                    <ul style={{ listStyle: 'none', padding: 0, display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+                        <li>
+                            <strong style={{ color: '#fff' }}>Volume by Category:</strong> RT2 (Elite) was the most booked room type with 49,505 bookings, followed by RT1 (Standard). Presidential rooms (RT4) were the least booked at 16,073.
+                        </li>
+                        <li>
+                            <strong style={{ color: '#fff' }}>Flat Occupancy Phenomenon:</strong> Occupancy is almost uniform across all four classes, hovering between <strong>58–59%</strong>. Presidential at 59.3%, Standard at 58.2%, and Premium/Elite at 58.0%.
+                        </li>
+                        <li>
+                            <strong style={{ color: '#fff' }}>Business Insight:</strong> Presidential suites having the highest occupancy despite being priciest indicates <strong>strong, unmet demand at the luxury end</strong> — a signal for dynamic pricing adjustments.
+                        </li>
+                        <li>
+                            <strong style={{ color: '#fff' }}>Weekday vs Weekend:</strong> Almost no difference — both hovered around 58%. Because Atliq's portfolio mixes both Luxury and Business category hotels, their opposing peak cycles average each other out to a flat line.
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 style={{ fontSize: '1.8rem', color: 'var(--color-neon-violet)', marginBottom: '1.5rem' }}>💸 Revenue Deep Dive & Platform Analysis</h3>
+                    <ul style={{ listStyle: 'none', padding: 0, display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+                        <li>
+                            <strong style={{ color: '#fff' }}>Monthly Revenue Trend:</strong> May 22 (₹60.9M), Jun 22 (₹52.9M), Jul 22 (₹60.2M). June clearly underperformed, showing predictable operational seasonality.
+                        </li>
+                        <li>
+                            <strong style={{ color: '#fff' }}>Revenue Leakage:</strong> Visualizing generated vs realized revenue highlighted pure revenue lost to cancellations, showing distinct gaps dependent conditionally upon city and platform.
+                        </li>
+                        <li>
+                            <strong style={{ color: '#fff' }}>Booking Platforms:</strong> Platforms with highest booking volumes occasionally exhibited disproportionately high cancellation rates. Direct channels had lower cancellation rates and comparable revenue per booking, making them the most efficient channels.
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 style={{ fontSize: '1.8rem', color: 'var(--color-neon-violet)', marginBottom: '1.5rem' }}>⭐ Customer Ratings Analysis</h3>
+                    <div style={{ background: 'rgba(142,45,226,0.05)', padding: '1.5rem', borderRadius: '8px', borderLeft: '44px solid var(--color-neon-violet)' }}>
+                        <p style={{ color: 'var(--color-text-muted)', lineHeight: '1.6' }}>
+                            <strong>Significant finding:</strong> ~58% of all bookings had no rating (nearly 77,897 null values). Investigation revealed this is concentrated heavily in Cancelled and No Show bookings — meaning the platform feedback collection is behaving as expected, but only ~42% of actual guests are leaving reviews.
+                            Even a 0.2–0.3 point improvement in average rating on platforms like MakeMyTrip or Booking.com can meaningfully shift search rankings and conversion rates — making this a high-ROI operational focus area.
+                        </p>
+                    </div>
+                </div>
+
+                <div style={{ background: 'rgba(142, 45, 226, 0.05)', padding: '2rem', borderRadius: '12px', border: '1px solid rgba(142, 45, 226, 0.2)' }}>
+                    <h3 style={{ fontSize: '1.8rem', color: '#fff', marginBottom: '1.5rem' }}>🔑 Overall Takeaways</h3>
+                    <ul style={{ listStyle: 'none', padding: 0, display: 'flex', flexDirection: 'column', gap: '1rem', color: 'var(--color-text-main)', fontSize: '1.05rem' }}>
+                        <li>1️⃣ <strong>Occupancy is healthy but flat</strong> — the chain isn't struggling with demand, but it's leaving revenue on the table by not using dynamic pricing.</li>
+                        <li>2️⃣ <strong>Cancellations are a bigger revenue problem than low bookings</strong> — the gap between what was generated and what was realized is substantial.</li>
+                        <li>3️⃣ <strong>June is a structural weak month</strong> — it's predictable and therefore manageable with early-bird promotions or corporate tie-ups.</li>
+                        <li>4️⃣ <strong>Direct channels are underutilized</strong> — lower cancellation rates and comparable revenue per booking make them the most efficient channel.</li>
+                        <li>5️⃣ <strong>Ratings are an underleveraged asset</strong> — with better post-stay feedback collection, the chain could improve its platform visibility.</li>
+                    </ul>
+                </div>
+            </div>
+        )
     }
 ];

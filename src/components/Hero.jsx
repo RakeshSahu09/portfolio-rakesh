@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Download, Mail, Eye } from 'lucide-react';
+import { ArrowRight, Download, Mail, Eye, Github } from 'lucide-react';
 
 const Hero = () => {
     return (
@@ -92,6 +92,9 @@ const Hero = () => {
                     </a>
                     <a href="#contact" className="btn-secondary">
                         Contact Me <Mail size={18} />
+                    </a>
+                    <a href="https://github.com/RakeshSahu09" className="btn-secondary" target="_blank" rel="noreferrer">
+                        Github <Github size={18} />
                     </a>
                 </motion.div>
             </div>

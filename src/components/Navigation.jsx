@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Layers, Menu, X } from 'lucide-react';
+import { Layers, Menu, X, Github } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
 
 const styles = {
@@ -96,6 +96,11 @@ const Navigation = () => {
                     </li>
                 ))}
             </ul>
+            <div className="desktop-only" style={{ display: 'flex', alignItems: 'center' }}>
+                <a href="https://github.com/RakeshSahu09" target="_blank" rel="noreferrer" style={{ color: 'var(--color-text-main)', display: 'flex', alignItems: 'center', transition: 'color 0.3s' }} onMouseEnter={(e) => e.target.style.color = 'var(--color-electric-blue)'} onMouseLeave={(e) => e.target.style.color = 'var(--color-text-main)'}>
+                    <Github size={20} />
+                </a>
+            </div>
 
             {/* Mobile Menu Toggle */}
             <div className="mobile-toggle" style={{ zIndex: 101, cursor: 'pointer', display: 'none' }} onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
