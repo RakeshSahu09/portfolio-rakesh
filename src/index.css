@@ -158,11 +158,13 @@ a {
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 
 .section {
-  padding: 6rem 0;
+  padding-top: 6rem;
+  padding-bottom: 6rem;
   position: relative;
   z-index: 10;
 }
@@ -246,7 +248,8 @@ a {
   }
 
   .container {
-    padding: 0 1.5rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
   }
 
   .hero-title {
@@ -272,7 +275,8 @@ a {
 
 @media (max-width: 768px) {
   .section {
-    padding: 4rem 0;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
   }
 
   .section-title {
