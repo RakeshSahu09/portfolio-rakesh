@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 const tracks = [
-    { label: 'TRACK', name: 'Data Science', tools: ['Machine Learning', 'AI / ML', 'Scikit-learn'] },
+    { label: 'TRACK', name: 'Data Science', tools: ['Machine Learning', 'NumPy', 'Scikit-learn', 'Model Evaluation'] },
     { label: 'TRACK', name: 'Big Data',     tools: ['PySpark', 'Hadoop', 'Big Data'] },
 ];
 
@@ -15,9 +15,17 @@ const Learning = () => (
             textAlign: 'center',
             color: 'var(--color-text-muted)',
             fontSize: '1.1rem',
-            marginBottom: '3rem',
         }}>
             Expanding from analytics into full-stack data science and big data engineering.
+        </p>
+        <p style={{
+            textAlign: 'center',
+            color: 'var(--color-text-muted)',
+            fontSize: '1.1rem',
+            marginTop: '0.4rem',
+            marginBottom: '3rem',
+        }}>
+            Domain experience across retail, hospitality &amp; enterprise BI.
         </p>
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>

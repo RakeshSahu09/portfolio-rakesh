@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 const stages = [
-    { num: '01', name: 'Extract',       tools: ['PostgreSQL', 'MySQL', 'SQL Server', 'Power Query'] },
+    { num: '01', name: 'Extract',       tools: ['PostgreSQL', 'MySQL', 'SQL Server'] },
     { num: '02', name: 'Clean & Model', tools: ['Power Query', 'Python (Pandas)', 'Data Modelling', 'Star Schema'] },
     { num: '03', name: 'Analyse',       tools: ['DAX', 'Advanced Excel', 'Python (EDA)', 'Statistical Analysis'] },
     { num: '04', name: 'Visualise',     tools: ['Power BI', 'Power BI Service', 'Tableau', 'Matplotlib / Seaborn'] },
