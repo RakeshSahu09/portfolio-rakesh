@@ -382,3 +382,13 @@ a {
     flex: 1 1 100% !important;
   }
 }
+
+.nav-link:hover {
+  color: var(--color-electric-blue);
+}
+
+.nav-link.active {
+  color: var(--color-electric-blue);
+  border-bottom: 2px solid var(--color-electric-blue);
+  padding-bottom: 2px;
+}

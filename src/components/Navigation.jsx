@@ -45,9 +45,21 @@ const styles = {
     }
 };
 
+const sectionMap = {
+    Home: 'hero',
+    About: 'about',
+    Skills: 'skills',
+    Learning: 'learning',
+    Projects: 'projects',
+    Experience: 'experience',
+    Certifications: 'certifications',
+    Contact: 'contact'
+};
+
 const Navigation = () => {
     const [scrolled, setScrolled] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const [activeSection, setActiveSection] = useState('hero');
 
     useEffect(() => {
         const handleScroll = () => {
@@ -55,6 +67,23 @@ const Navigation = () => {
         };
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
+    useEffect(() => {
+        const ids = ['hero', 'about', 'skills', 'learning', 'projects', 'experience', 'certifications', 'contact'];
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) setActiveSection(entry.target.id);
+                });
+            },
+            { threshold: 0.3 }
+        );
+        ids.forEach(id => {
+            const el = document.getElementById(id);
+            if (el) observer.observe(el);
+        });
+        return () => observer.disconnect();
     }, []);
 
     const navigate = useNavigate();
@@ -75,6 +104,15 @@ const Navigation = () => {
         }
     };
 
+    const handleNavClick = (item) => {
+        if (item === 'Home') {
+            navigate('/');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        } else {
+            scrollTo(item.toLowerCase());
+        }
+    };
+
     return (
         <nav style={{ ...styles.nav, ...(scrolled ? styles.scrolled : {}) }}>
             <div style={{ ...styles.logo, cursor: 'pointer', zIndex: 101 }} className="text-gradient" onClick={() => { navigate('/'); window.scrollTo(0, 0); setMobileMenuOpen(false); }}>
@@ -83,13 +121,12 @@ const Navigation = () => {
 
             {/* Desktop Menu */}
             <ul style={styles.links} className="nav-links desktop-only">
-                {['About', 'Skills', 'Learning', 'Projects', 'Experience', 'Contact'].map(item => (
+                {['Home', 'About', 'Skills', 'Learning', 'Projects', 'Experience', 'Certifications', 'Contact'].map(item => (
                     <li key={item}>
                         <span
                             style={styles.link}
-                            onMouseEnter={(e) => e.target.style.color = 'var(--color-electric-blue)'}
-                            onMouseLeave={(e) => e.target.style.color = 'var(--color-text-main)'}
-                            onClick={() => scrollTo(item.toLowerCase())}
+                            className={`nav-link ${activeSection === sectionMap[item] ? 'active' : ''}`}
+                            onClick={() => handleNavClick(item)}
                         >
                             {item}
                         </span>
@@ -97,13 +134,18 @@ const Navigation = () => {
                 ))}
             </ul>
             <div className="desktop-only" style={{ display: 'flex', alignItems: 'center' }}>
-                <a href="https://github.com/RakeshSahu09" target="_blank" rel="noreferrer" style={{ color: 'var(--color-text-main)', display: 'flex', alignItems: 'center', transition: 'color 0.3s' }} onMouseEnter={(e) => e.target.style.color = 'var(--color-electric-blue)'} onMouseLeave={(e) => e.target.style.color = 'var(--color-text-main)'}>
+                <a href="https://github.com/RakeshSahu09" target="_blank" rel="noreferrer" aria-label="GitHub profile" style={{ color: 'var(--color-text-main)', display: 'flex', alignItems: 'center', transition: 'color 0.3s' }}>
                     <Github size={20} />
                 </a>
             </div>
 
             {/* Mobile Menu Toggle */}
-            <div className="mobile-toggle" style={{ zIndex: 101, cursor: 'pointer', display: 'none' }} onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+            <div
+                className="mobile-toggle"
+                style={{ zIndex: 101, cursor: 'pointer', display: 'none' }}
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                aria-label={mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+            >
                 {mobileMenuOpen ? <X size={28} color="#fff" /> : <Menu size={28} color="#fff" />}
             </div>
 
@@ -126,13 +168,14 @@ const Navigation = () => {
                     }}
                 >
                     <ul style={{ listStyle: 'none', padding: 0, display: 'flex', flexDirection: 'column', gap: '2.5rem', alignItems: 'center' }}>
-                        {['About', 'Skills', 'Learning', 'Projects', 'Experience', 'Contact'].map(item => (
+                        {['Home', 'About', 'Skills', 'Learning', 'Projects', 'Experience', 'Certifications', 'Contact'].map(item => (
                             <li key={item}>
                                 <span
                                     style={{ ...styles.link, fontSize: '1.5rem' }}
+                                    className={`nav-link ${activeSection === sectionMap[item] ? 'active' : ''}`}
                                     onClick={() => {
                                         setMobileMenuOpen(false);
-                                        scrollTo(item.toLowerCase());
+                                        handleNavClick(item);
                                     }}
                                 >
                                     {item}
