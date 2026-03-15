@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://portfolio-rakesh-chi.vercel.app/sitemap.xml
