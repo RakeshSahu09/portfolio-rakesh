@@ -7,7 +7,8 @@ const certs = [
     { name: "MS Excel – Codebasics", url: "https://codebasics.io/certificate/CB-51-513054" },
     { name: "Power BI – Codebasics", url: "https://codebasics.io/certificate/CB-49-513054" },
     { name: "AI & Data Fest 2025", url: "https://codebasics.io/certificate/CB-E-38-15367" },
-    { name: "SQL Beginner to Advanced For Data Professionals", url: "https://codebasics.io/certificate/CB-50-513054" }
+    { name: "SQL Beginner to Advanced For Data Professionals", url: "https://codebasics.io/certificate/CB-50-513054" },
+    { name: "Python Certification – from Basics to Advanced", url: "https://codebasics.io/certificate/CB-48-513054" }
 ];
 
 const Certifications = () => {
@@ -57,9 +58,9 @@ const Certifications = () => {
                     {certs.slice(0, 3).map((cert, idx) => renderCert(cert, idx, true))}
                 </div>
 
-                {/* Row 2: Remaining 2 Certifications */}
+                {/* Row 2: Remaining 3 Certifications */}
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1.5rem', justifyContent: 'center', width: '100%', maxWidth: '1200px' }}>
-                    {certs.slice(3, 5).map((cert, idx) => renderCert(cert, idx + 3, false))}
+                    {certs.slice(3).map((cert, idx) => renderCert(cert, idx + 3, false))}
                 </div>
             </div>
         </section>
